@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Name</key>
-	<string>Fragment Shader</string>
+	<string>Using Fragment Shaders</string>
 	<key>LiveViewEdgeToEdge</key>
 	<false/>
 	<key>LiveViewMode</key>

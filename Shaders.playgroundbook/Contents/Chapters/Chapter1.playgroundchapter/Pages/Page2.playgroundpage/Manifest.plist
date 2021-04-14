@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Name</key>
-	<string>Vertex Shader</string>
+	<string>Using Vertex Shaders</string>
 	<key>LiveViewEdgeToEdge</key>
 	<false/>
 	<key>LiveViewMode</key>

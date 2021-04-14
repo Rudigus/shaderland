@@ -3,10 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Name</key>
-	<string>Putting It All Together</string>
+	<string>Conclusion</string>
 	<key>InitialUserPages</key>
 	<array>
 		<string>Page1.playgroundpage</string>
+		<string>Page2.playgroundpage</string>
 	</array>
 </dict>
 </plist>

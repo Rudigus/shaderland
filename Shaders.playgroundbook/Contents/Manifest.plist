@@ -6,7 +6,6 @@
 	<array>
 		<string>Chapter1.playgroundchapter</string>
 		<string>Chapter2.playgroundchapter</string>
-		<string>Chapter3.playgroundchapter</string>
 	</array>
 	<key>ContentIdentifier</key>
 	<string>com.rudigus.shaders</string>
@@ -23,7 +22,7 @@
 	<key>UserAutoImportedAuxiliaryModules</key>
 	<array/>
 	<key>UserModuleMode</key>
-	<string>Full</string>
+	<string>Disabled</string>
 	<key>HasMeaningfulResetPoint</key>
 	<false/>
 	<key>ImageReference</key>
