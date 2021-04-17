@@ -4,9 +4,12 @@ import SceneKit
 public class ShaderScene: SCNScene, SCNProgramDelegate {
     
     var view: SCNView?
+    var geometrySourceCode: String?
+    var surfaceSourceCode: String?
     
     public override init() {
         super.init()
+        setupShaders()
         setupCamera()
         setupBox()
         setupGround()
@@ -22,6 +25,11 @@ public class ShaderScene: SCNScene, SCNProgramDelegate {
         } catch { return nil }
     }
     
+    func setupShaders() {
+        geometrySourceCode = getSourceCode(of: "GeometryShaderModifier", type: "shader")
+        surfaceSourceCode = getSourceCode(of: "SurfaceShaderModifier", type: "shader")
+    }
+    
     func setupCamera() {
         let camera = SCNCamera()
         let cameraNode = SCNNode()
@@ -35,10 +43,10 @@ public class ShaderScene: SCNScene, SCNProgramDelegate {
         let boxMaterial = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
         boxMaterial.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.27450980392156865, green: 0.48627450980392156, blue: 0.1411764705882353, alpha: 1.0)
         var shaderModifiers: [SCNShaderModifierEntryPoint: String] = [:]
-        if let geometrySourceCode = getSourceCode(of: "GeometryShaderModifier", type: "shader") {
+        if let geometrySourceCode = geometrySourceCode {
             shaderModifiers[.geometry] = geometrySourceCode
         }
-        if let surfaceSourceCode = getSourceCode(of: "SurfaceShaderModifier", type: "shader") {
+        if let surfaceSourceCode = surfaceSourceCode {
             shaderModifiers[.surface] = surfaceSourceCode
         }
         boxMaterial.shaderModifiers = shaderModifiers
