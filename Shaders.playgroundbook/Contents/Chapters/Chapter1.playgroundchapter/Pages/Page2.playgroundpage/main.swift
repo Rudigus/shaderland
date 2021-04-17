@@ -1,3 +1,7 @@
+//#-hidden-code
+import PlaygroundSupport
+import Module
+//#-end-hidden-code
 /*:
 
  # Vertex Shader
@@ -18,7 +22,7 @@
  1. Tap `Run the Code` on the right
  */
 //#-hidden-code
-let shaderCode = """
+let geometryShaderCode = """
 //#-end-hidden-code
 //#-editable-code
 if (_geometry.position.y > 0) {
@@ -28,12 +32,13 @@ if (_geometry.position.y > 0) {
 //#-hidden-code
 """
 
-public func sendShaderCode() {
+public func sendGeometryShaderCode() {
     guard let remoteView = PlaygroundPage.current.liveView as? PlaygroundRemoteLiveViewProxy else {
         fatalError("Always-on live view not configured in this page's LiveView.swift")
     }
     
-    remoteView.send(.string(shaderCode))
+    remoteView.send(.dictionary(["type": .string(ShaderType.geometry.rawValue), "sourceCode": .string(geometryShaderCode)]))
 }
-sendShaderCode()
+
+sendGeometryShaderCode()
 //#-end-hidden-code

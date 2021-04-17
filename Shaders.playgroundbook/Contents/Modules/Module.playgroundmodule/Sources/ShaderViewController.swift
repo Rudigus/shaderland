@@ -33,12 +33,19 @@ public class ShaderViewController: UIViewController {
 }
 
 extension ShaderViewController: PlaygroundLiveViewMessageHandler {
+    
     public func receive(_ message: PlaygroundValue) {
         switch message {
-        case let .string(info):
-            shaderScene.geometrySourceCode = info
+        case let .dictionary(info):
+            guard case .string(let type) = info["type"] else { return }
+            if type == ShaderType.geometry.rawValue {
+                if case .string(let sourceCode) = info["sourceCode"] {
+                    shaderScene.changeShaderModifier(sourceCode, .geometry)
+                }
+            }
         default:
             break
         }
     }
+    
 }
