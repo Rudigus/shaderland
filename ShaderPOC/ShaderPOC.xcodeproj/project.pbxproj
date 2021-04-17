@@ -19,6 +19,8 @@
 		57A193A226272BBD00147D51 /* FragmentShaderModifier.shader in Sources */ = {isa = PBXBuildFile; fileRef = 57A193A126272BBD00147D51 /* FragmentShaderModifier.shader */; };
 		57A193A626272EE600147D51 /* FragmentShaderModifier.shader in Resources */ = {isa = PBXBuildFile; fileRef = 57A193A126272BBD00147D51 /* FragmentShaderModifier.shader */; };
 		57A193A92627301400147D51 /* SurfaceShaderModifier.shader in Resources */ = {isa = PBXBuildFile; fileRef = 57A193A82627301400147D51 /* SurfaceShaderModifier.shader */; };
+		57F2F3E5262B24BE00084479 /* ShaderHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2F3E4262B24BE00084479 /* ShaderHUD.swift */; };
+		57F2F3EB262B353500084479 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F2F3EA262B353500084479 /* ImageButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		57A1939D262729CD00147D51 /* GeometryShaderModifier.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = GeometryShaderModifier.shader; sourceTree = "<group>"; };
 		57A193A126272BBD00147D51 /* FragmentShaderModifier.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShaderModifier.shader; sourceTree = "<group>"; };
 		57A193A82627301400147D51 /* SurfaceShaderModifier.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = SurfaceShaderModifier.shader; sourceTree = "<group>"; };
+		57F2F3E4262B24BE00084479 /* ShaderHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderHUD.swift; sourceTree = "<group>"; };
+		57F2F3EA262B353500084479 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				57A19346262712C800147D51 /* SceneDelegate.swift */,
 				57A193382627127400147D51 /* ShaderViewController.swift */,
 				57A1934A2627131600147D51 /* ShaderScene.swift */,
+				57F2F3E4262B24BE00084479 /* ShaderHUD.swift */,
+				57F2F3EA262B353500084479 /* ImageButton.swift */,
 				57A1939D262729CD00147D51 /* GeometryShaderModifier.shader */,
 				57A193A126272BBD00147D51 /* FragmentShaderModifier.shader */,
 				57A193A82627301400147D51 /* SurfaceShaderModifier.shader */,
@@ -159,7 +165,9 @@
 			files = (
 				57A193392627127400147D51 /* ShaderViewController.swift in Sources */,
 				57A1934B2627131600147D51 /* ShaderScene.swift in Sources */,
+				57F2F3E5262B24BE00084479 /* ShaderHUD.swift in Sources */,
 				57A193A226272BBD00147D51 /* FragmentShaderModifier.shader in Sources */,
+				57F2F3EB262B353500084479 /* ImageButton.swift in Sources */,
 				57A193352627127400147D51 /* AppDelegate.swift in Sources */,
 				57A19347262712C800147D51 /* SceneDelegate.swift in Sources */,
 			);

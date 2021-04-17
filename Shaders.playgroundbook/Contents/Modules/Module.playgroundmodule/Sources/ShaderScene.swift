@@ -71,6 +71,17 @@ public class ShaderScene: SCNScene, SCNProgramDelegate {
         lightNode.light = light
         rootNode.addChildNode(lightNode)
     }
+    
+    func setupHUD() {
+        guard let view = view else { return }
+        let shaderHUD = ShaderHUD(size: view.bounds.size, sceneView: view)
+        view.overlaySKScene = shaderHUD
+    }
+    
+    func setView(view: SCNView) {
+        self.view = view
+        setupHUD()
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

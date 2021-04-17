@@ -27,7 +27,7 @@ public class ShaderViewController: UIViewController {
         self.shaderScene = ShaderScene()
         shaderScene.background.contents = #colorLiteral(red: 0.25882352941176473, green: 0.7568627450980392, blue: 0.9686274509803922, alpha: 1.0)
         sceneView.scene = shaderScene
-        shaderScene.view = sceneView
+        shaderScene.setView(view: sceneView)
     }
     
 }

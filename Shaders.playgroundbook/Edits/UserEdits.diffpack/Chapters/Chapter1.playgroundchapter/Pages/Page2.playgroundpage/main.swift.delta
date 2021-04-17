@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>  _geometry.position.y += 0.5 * sin(u_time * 4);
+			<string>  _geometry.position.y += 0.5 * sin(u_time * 6);
 </string>
 			<key>ModifiedRange</key>
 			<string>{1529, 49}</string>
