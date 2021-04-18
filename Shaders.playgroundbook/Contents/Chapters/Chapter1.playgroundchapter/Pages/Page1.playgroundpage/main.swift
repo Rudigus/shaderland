@@ -18,5 +18,5 @@ Hello, welcome to *A Brief Journey in Shaders*! I'm Rodrigo and we'll be learnin
  
  Knowing this, shaders can be classified based on the order in which they appear on the rendering pipeline. Here, we will look at two types of shaders, Vertex Shaders and Fragment Shaders. These two types can be considered the most important, since they are mandatory: you can't start the drawing process without providing them.
  
- Let's start by discussing the Vertex Shader in the [next page](@next).
+ Let's start by discussing the Vertex Shader on the [next page](@next).
  */
