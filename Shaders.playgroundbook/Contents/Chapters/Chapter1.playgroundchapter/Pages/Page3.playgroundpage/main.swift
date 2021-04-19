@@ -53,7 +53,7 @@ sendSurfaceShaderCode()
  
     "First, check if the red color component of the fragment's color is greater than 0. If it is, change the fragment's color to red. Otherwise, leave the fragment unmodified."
  
-    Here we check if a color component value fits a certain criterion. This way, we are able to change only the color of the fragments we want. Why 0? First, in shaders the color components are generally normalized, which means their values will be from 0 to 1 (both inclusive). Second, the original texture is a pure black, pure white checkerboard, so the red component value is 0 for black and 1 for white (green and blue could also have been used, the same applies). Third, the checkerboard texture is using the nearest neighbor filtering mode, so no intermediate colors will appear.
+    Here we check if a color component value fits a certain criterion. This way, we are able to change only the color of the fragments we want. Why 0? First, in shaders the color components are generally normalized, which means their values will be from 0 to 1 (both inclusive). Second, the original texture is a pure black, pure white checkerboard, so the red component value is 0 for black and 1 for white (green and blue could also have been used, the same logic applies). Third, the checkerboard texture is using the nearest neighbor filtering mode, so no intermediate colors will appear.
  
  Our journey is ending very soon, we just need to visit our last destination: the [Conclusion](@next)!
  */

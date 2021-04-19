@@ -9,10 +9,14 @@ public class ShaderViewController: UIViewController {
     var sceneView: SCNView!
     var shaderScene: ShaderScene!
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setupView()
         setupScene()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupView() {
@@ -37,6 +41,10 @@ public class ShaderViewController: UIViewController {
     
     public func setObjectTexture(_ texture: SKTexture) {
         shaderScene.changeTexture(with: texture)
+    }
+    
+    public func setObjectShader(_ sourceCode: String, _ entryPoint: SCNShaderModifierEntryPoint) {
+        shaderScene.changeShaderModifier(sourceCode, entryPoint)
     }
     
 }
