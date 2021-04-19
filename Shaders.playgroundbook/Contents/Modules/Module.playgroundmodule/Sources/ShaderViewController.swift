@@ -1,6 +1,7 @@
 
 import UIKit
 import SceneKit
+import SpriteKit
 import PlaygroundSupport
 
 public class ShaderViewController: UIViewController {
@@ -30,6 +31,14 @@ public class ShaderViewController: UIViewController {
         shaderScene.setView(view: sceneView)
     }
     
+    public func setObjectGeometry(_ geometry: SCNGeometry) {
+        shaderScene.setupObject(with: geometry)
+    }
+    
+    public func setObjectTexture(_ texture: SKTexture) {
+        shaderScene.changeTexture(with: texture)
+    }
+    
 }
 
 extension ShaderViewController: PlaygroundLiveViewMessageHandler {
@@ -41,6 +50,10 @@ extension ShaderViewController: PlaygroundLiveViewMessageHandler {
             if type == ShaderType.geometry.rawValue {
                 if case .string(let sourceCode) = info["sourceCode"] {
                     shaderScene.changeShaderModifier(sourceCode, .geometry)
+                }
+            } else {
+                if case .string(let sourceCode) = info["sourceCode"] {
+                    shaderScene.changeShaderModifier(sourceCode, .surface)
                 }
             }
         default:

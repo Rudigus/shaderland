@@ -1,14 +1,15 @@
 
 import SceneKit
+import SpriteKit
 
 public class ShaderScene: SCNScene, SCNProgramDelegate {
     
     var view: SCNView?
+    var objectNode: SCNNode?
     
     public override init() {
         super.init()
         setupCamera()
-        setupBox()
         setupGround()
         setupAmbientLight()
     }
@@ -22,6 +23,19 @@ public class ShaderScene: SCNScene, SCNProgramDelegate {
         } catch { return nil }
     }
     
+    func changeShaderModifier(_ sourceCode: String, _ entryPoint: SCNShaderModifierEntryPoint) {
+        guard var objectGeometry = objectNode?.geometry, var modifiers = objectGeometry.shaderModifiers else {
+            return
+        }
+        modifiers[entryPoint] = sourceCode
+        objectGeometry.shaderModifiers = modifiers
+    }
+    
+    func changeTexture(with texture: SKTexture) {
+        guard let objectGeometry = objectNode?.geometry else { return }
+        objectGeometry.firstMaterial?.diffuse.contents = texture
+    }
+    
     func setupCamera() {
         let camera = SCNCamera()
         let cameraNode = SCNNode()
@@ -31,24 +45,25 @@ public class ShaderScene: SCNScene, SCNProgramDelegate {
         rootNode.addChildNode(cameraNode)
     }
     
-    func setupBox() {
-        let boxMaterial = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-        boxMaterial.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.27450980392156865, green: 0.48627450980392156, blue: 0.1411764705882353, alpha: 1.0)
+    func setupObject(with objectGeometry: SCNGeometry) {
+//        let boxGeometry = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+        objectGeometry.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.27450980392156865, green: 0.48627450980392156, blue: 0.1411764705882353, alpha: 1.0)
         var shaderModifiers: [SCNShaderModifierEntryPoint: String] = [:]
-        if let geometrySourceCode = getSourceCode(of: "GeometryShaderModifier", type: "shader") {
-            shaderModifiers[.geometry] = geometrySourceCode
-        }
-        if let surfaceSourceCode = getSourceCode(of: "SurfaceShaderModifier", type: "shader") {
-            shaderModifiers[.surface] = surfaceSourceCode
-        }
-        boxMaterial.shaderModifiers = shaderModifiers
-        let box = SCNNode(geometry: boxMaterial)
-        rootNode.addChildNode(box)
+//        if let geometrySourceCode = getSourceCode(of: "GeometryShaderModifier", type: "shader") {
+//            shaderModifiers[.geometry] = geometrySourceCode
+//        }
+//        if let surfaceSourceCode = getSourceCode(of: "SurfaceShaderModifier", type: "shader") {
+//            shaderModifiers[.surface] = surfaceSourceCode
+//        }
+        objectGeometry.shaderModifiers = shaderModifiers
+        let objectNode = SCNNode(geometry: objectGeometry)
+        rootNode.addChildNode(objectNode)
+        self.objectNode = objectNode
     }
     
     func setupGround() {
-        let groundMaterial = SCNBox(width: 3, height: 0.1, length: 3, chamferRadius: 0)
-        let groundNode = SCNNode(geometry: groundMaterial)
+        let boxGeometry = SCNBox(width: 3, height: 0.1, length: 3, chamferRadius: 0)
+        let groundNode = SCNNode(geometry: boxGeometry)
         groundNode.position = SCNVector3(0, -0.55, 0)
         rootNode.addChildNode(groundNode)
     }
